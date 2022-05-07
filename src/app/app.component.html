@@ -1,23 +1,47 @@
 <div class="container-fluid">
   <h2>Registration Form </h2>
   <form [formGroup]="registrationForm">
+    <!-- {{registrationForm.value | json}} -->
     <div class="form-group">
       <label>Username</label>
-      <input formControlName="userName" type="text" class="form-control">
+
+      <input formControlName="userName required" placeholder="Enter Username" type="text" class="form-control ">
+      <!-- <small class="text-danger" [class.d-none] ="Username.untouched">Name is required</small> -->
     </div>
 
     <div class="form-group">
       <label>Password</label>
-      <input formControlName="password" type="password" class="form-control">
+      <input formControlName="password" placeholder="Enter password" type="password" class="form-control">
     </div>
 
     <div class="form-group">
       <label>Confirm Password</label>
-      <input formControlName="password" type="password" class="form-control">
+      <input formControlName="password" placeholder="Enter confirm password" type="password" class="form-control">
     </div>
+    
+    <diV formGroupName = "address">
+      <div class="form-group">
+        <label>City</label>
+        <input formControlName="city"  type="text" class="form-control">
+      </div>
 
-    <button class="btn btn-primary" type="submit">Register</button>
+      <div class="form-group">
+        <label>Sate</label>
+        <input formControlName="state"  type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Postal Code</label>
+        <input formControlName="postalCode"  type="text" class="form-control">
+      </div>
+    </diV>
+
+    <br>
+    <button class="btn btn-primary" type="submit">Register</button> 
+   <pre></pre>
+    
+    <button (click) ="loadApiData()" class="btn btn-secondary ml-2" type="button">Load API Data</button>
   </form>
 
-  {{registrationForm.value | json}}
+  <!-- {{registrationForm.value | json}} -->
 </div>
